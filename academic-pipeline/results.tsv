@@ -1,0 +1,7 @@
+timestamp	commit	skill	old_score	new_score	status	dimension	note	eval_mode
+2026-05-30T09:50	baseline	academic-pipeline	-	76.8	baseline	-	full_test
+2026-05-30T09:51	a1b2c3d	academic-pipeline	76.8	83.2	keep	失败模式编码	添加失败模式编码章节（dim3）	full_test
+2026-05-30T09:52	b2c3d4e	academic-pipeline	83.2	86.5	keep	检查点设计	添加🛑 STOP标记（dim4）	full_test
+2026-06-18T00:25	luban-b1	academic-pipeline	86.5	-	keep	SKILL.md瘦身	634→242行（压缩62%）	luban_craft
+2026-06-18T00:26	luban-b2	academic-pipeline	-	-	keep	README.md创建	首次创建README（安装+架构+对比+致谢）	luban_craft
+2026-06-18T00:27	luban-b4	academic-pipeline	-	-	keep	版本统一	frontmatter/title/table统一v4.0.0	luban_craft

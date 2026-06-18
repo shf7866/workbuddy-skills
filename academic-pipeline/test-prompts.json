@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "prompt": "我想写一篇关于 AI 对高等教育质量保证影响的学术论文。请从研究开始，完成整个流程。",
+    "expected": "Should activate Stage 1 (RESEARCH), run deep-research socratic/full mode, then proceed through Stage 2-6 with integrity checks",
+    "entry_stage": "Stage 1",
+    "trigger_type": "full_pipeline",
+    "dispatches": ["deep-research", "academic-paper", "integrity_verification_agent", "academic-paper-reviewer", "academic-paper(format-convert)"]
+  },
+  {
+    "id": 2,
+    "prompt": "我已经有论文草稿了，帮我评审并修订。",
+    "expected": "Should detect mid-process entry at Stage 2.5 (INTEGRITY), run integrity verification, then proceed to Stage 3 (REVIEW)",
+    "entry_stage": "Stage 2.5",
+    "trigger_type": "mid_entry",
+    "dispatches": ["integrity_verification_agent(pre-review)", "academic-paper-reviewer(full)", "academic-paper(revision)"]
+  },
+  {
+    "id": 3,
+    "prompt": "我收到了审稿意见，帮我修订论文。",
+    "expected": "Should detect mid-process entry at Stage 4 (REVISE), process reviewer comments, generate response letter, then proceed to Stage 3' (RE-REVIEW)",
+    "entry_stage": "Stage 4",
+    "trigger_type": "revision_entry",
+    "dispatches": ["academic-paper(revision)", "academic-paper-reviewer(re-review)", "integrity_verification_agent(final-check)"]
+  },
+  {
+    "id": 4,
+    "prompt": "我现在在学术流水线的哪个阶段？",
+    "expected": "Should output current stage, completed stages, remaining stages, and next-step suggestion",
+    "entry_stage": "status_query",
+    "trigger_type": "status_check",
+    "dispatches": ["state_tracker_agent"]
+  },
+  {
+    "id": 5,
+    "prompt": "我现在只有文献综述，接下来该做什么？",
+    "expected": "Should detect Stage 1 completed, recommend Stage 2 (WRITE) with academic-paper plan mode",
+    "entry_stage": "Stage 2",
+    "trigger_type": "mode_advisory",
+    "dispatches": ["academic-paper(plan)"]
+  }
+]
